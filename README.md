@@ -7,4 +7,11 @@ Semicolon World
 ### BackEnd = https://github.com/metidotpy/
 
 #### Enjoy!
+
+### How To Use:
+#### 1. Install Django with command:
+```pip3 install django```
+#### 2. Run Server with command:
+```python3 manage.py runserver 5000```
+
 #### Semiclon World
