@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: roboto;
+  box-sizing: border-box;
+}
+
+/* light mode */
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #93b5c6;
+}
+.container * {
+  transition: 0.2s;
+}
+.modes {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modeToggleBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 3.5rem;
+  height: 1.6rem;
+  padding: 0.3rem;
+  background-color: #333;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.modeToggle {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  transform: translateX(0);
+  background-color: #fff36e;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.modes i {
+  color: #333;
+  margin: 0 0.5rem;
+  font-size: 1.6rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #fff36e;
+  border-radius: 4px;
+  box-shadow: 0px 0px 15px #666;
+}
+.form input {
+  width: 70%;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: #eee;
+  box-shadow: 0px 0px 15px #aaa;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+}
+.form button {
+  padding: 0.4rem 1.3rem;
+  background-color: #fff36e;
+  color: #7e5699;
+  border: 2px #7e5699 solid;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+.form button:hover {
+  background-color: #7e5699;
+  color: #ddd;
+}
+.generatedLink {
+  width: 40%;
+  padding: 1.5rem;
+  border: 3px #fff36e solid;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0px 0px 15px #666;
+}
+.generatedLink * {
+  color: #333;
+}
+.generatedLink h2 {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.generatedLink p {
+  font-size: 1.1rem;
+}
+
+/* dark mode */
+.container.active {
+  background-color: #261c2c;
+}
+.container.active .modeToggleBox {
+  background-color: #ccc;
+}
+.container.active .modeToggle {
+  transform: translateX(1.9rem);
+
+  background-color: #213763;
+}
+.container.active .modes i {
+  color: #ddd;
+}
+.container.active .form {
+  background-color: #6e85b2;
+}
+.container.active .form input {
+  background-color: #eee;
+}
+.container.active .form button {
+  background-color: #6e85b2;
+  color: #2d2547;
+  border: 2px #2d2547 solid;
+}
+.container.active .form button:hover {
+  background-color: #2d2547;
+  color: #ddd;
+}
+.container.active .generatedLink {
+  border: 3px #6e85b2 solid;
+}
+.container.active .generatedLink * {
+  color: #ddd;
+}
+
+@media screen and (max-width: 900px) {
+  .form {
+    width: 50%;
+  }
+  .generatedLink {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form {
+    width: 60%;
+  }
+  .generatedLink {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .form {
+    width: 80%;
+  }
+  .generatedLink {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form input {
+    width: 90%;
+  }
+  .generatedLink h2 {
+    font-size: 1.3rem;
+  }
+  .generatedLink p {
+    font-size: 1rem;
+  }
+}
+
+/* @media screen and (max-width: 320px) {
+  .form input {
+    width: 100%;
+  }
+} */

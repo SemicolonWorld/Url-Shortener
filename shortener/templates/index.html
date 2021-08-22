@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="modes">
+        <i class="material-icons"> light_mode </i>
+        <div class="modeToggleBox">
+          <div class="modeToggle"></div>
+        </div>
+        <i class="material-icons"> dark_mode </i>
+      </div>
+      <form id="post-form" class="form">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="link"
+          id="link"
+          placeholder="Enter your link here..."
+          autofocus
+        />
+        <button type="submit" id="shorten">Generate</button>
+      </form>
+      <div class="generatedLink">
+        <h2>Your generated link:</h2>
+        <p></p>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+    $(document).on("submit", "#post-form", function (e) {
+      e.preventDefault();
+    
+      $.ajax({
+        type: "POST",
+        url: "/create",
+        data: {
+          link: $("#link").val(),
+          csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+        },
+        success: function (data) {
+          $("p").html("127.0.0.1:5000/" + data);
+        },
+      });
+    });
+  </script>
+</html>
+<!-- Front-end: https://github.com/mohammadbaratii
+Back-end: https://github.com/metidotpy -->
