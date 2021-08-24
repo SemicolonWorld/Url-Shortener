@@ -1,5 +1,5 @@
 # Url Shortener With Django
-### Writed by 
+### Written by 
 ```
 Semicolon World
 ```
